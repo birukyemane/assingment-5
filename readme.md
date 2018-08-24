@@ -6,4 +6,4 @@ A linux based version control systme
 ### Github
 Gi hub is a version control tool. 
 http://github.com - automatic!
-[GitHub](http://github.com)
+[My project ]( https://birukyemane.github.io/testgithb/)
