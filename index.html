@@ -3,15 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
+<title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="main.js"></script>
+ <!-- <script src="main.js"></script> -->
 </head>
 <body>
  <h1>Javas script exercise 1</h1>
  <script>
-  
 
+   // put the code here to test 
+
+  let personalAccount = {
+  firstName : 'Brook',
+  lastName : 'Yemane',
+  incomes : [{description : 'salary', amount :36000},
+             {description: 'bonus', amount: 10000},
+             {description: 'online courses', amount :5500}],
+  expenses : [{descripton:'rent', amount:18000},
+              {description:'shopping', amount: 6000},
+              {descrition: 'travel', amount: 3000}],
+  
+  calculateTotal (accumulator, currentValue) {return accumulator + currentValue.amount;},  
+
+  totalIncome(){
+    return this.incomes.reduce(this.calculateTotal, 0);
+  },  
+
+  totalExpense(total){  
+    return this.expenses.reduce(this.calculateTotal, 0);
+  },
+  accountInfo() {
+    return `\n Full Name : ${this.firstName} ${this.lastName} \n Total income : ${this.totalIncome()} \n Toatal expense : ${this.totalExpense()} \n ${this.accountBalance()}`;
+  },
+  accountBalance () {
+    let blance =  0;
+    return `Balance : ${this.totalIncome() - this.totalExpense()}`;
+  },
+
+  addIncome () {
+    let description = prompt('Enter income description');
+    let amount = Number(prompt('Enter income amount'));
+    this.incomes.push({description, amount});
+  },
+
+  addExpense () {
+    let description = prompt('Enter expense description');
+    let amount = Number(prompt('Enter expense amout'));
+    this.expenses.push({description, amount});
+  }
+}
+
+// 
+console.log(personalAccount.accountInfo());
+personalAccount.addIncome();
+personalAccount.addExpense();
  </script>
 </body>
 </html>

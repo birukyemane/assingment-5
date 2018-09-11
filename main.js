@@ -7,19 +7,30 @@ function display (arg1, arg2) {
   console.log(arg1 + ' ' + arg2);
 }
 
+const countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas"
+	,"Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands"
+	,"Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica"
+	,"Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea"
+	,"Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana"
+	,"Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India"
+	,"Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia"
+	,"Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania"
+	,"Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia"
+	,"New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal"
+	,"Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles"
+	,"Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan"
+	,"Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia"
+	,"Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","United States Minor Outlying Islands","Uruguay"
+  ,"Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+  
+
 //  Part 1
 
 // 1. Variables 
 console.log(' 1. Variables \n \n');
 
-  // a.
-  /*
-  let firstName = 'Biruk';
-  let lastName = 'Yemane';
-  let  maritalStatus = 'Single';
-  let  country = 'Ethiopia';
-  let  age = 30;
-  */
+  // a. done on console 
+  
 
   // b
   let firstName = 'Biruk',lastName = 'Yemane', maritalStatus = 'Single', country = 'Ethiopia', age = 30;
@@ -96,39 +107,9 @@ console.log(' \n 6Comparison Operators \n\n');
   display ('greater than or equal to' , 4 >= 3);
   display ('les than', 4 < 3);
   
-  /* 
-  
-  // 7 Logical Operators
-
-  &&, || and ! are JavaScript logical operators. 
-  4 > 3 && 10 < 12
-  4 > 3 && 10 > 12
-  4 > 3 || 10 < 12
-  4 > 3 || 10 > 12
-
-  */ 
-
-// 8  Conditional 
-
-  /*
-  yourAge = Number(prompt('Enter your age?'));
- 
-  if(yourAge > myAge){
-    console.log(`Output: \n Enter your age: ${yourAge} \n You are ${yourAge - myAge} years older than me.`);
-  } else{
-    console.log(`Output: \n Enter your age: ${yourAge} \n I am ${myAge - yourAge} years older than you.`);
-  }
-
-  */
-
-// 9 Ternary operator 
-/*
-Ternary Operator
-let a = 4;
-let b = 3;
-If a is greater than b return a is greater than b else a is less than b.
-*/
-
+// 7 Logical Operators done on console
+// 8  Conditional - done on console
+// 9 Ternary operator - done on console
 // 10  Array 
 
 console.log(' \n 10 Arrays \n\n'); 
@@ -222,7 +203,7 @@ function userIdGenerator() {
 
 console.log(userIdGenerator());
 
-/*
+
 
   // 12
 
@@ -246,7 +227,7 @@ function userIdGeneratedByUser(){
 }
 console.log(userIdGeneratedByUser());
 
-*/
+
 
 // 13 Objects 
 
@@ -274,7 +255,7 @@ let personalAccount = {
   },
   accountBalance: function () {
     let blance =  0;
-    return `Balance : ${this.totalIncome() - this.totalExpense()}`
+    return `Balance : ${this.totalIncome() - this.totalExpense()}`;
   },
 
   addIncome : function() {
@@ -321,10 +302,45 @@ function displayDateTime (){
 }
 console.log(displayDateTime());
 
-// 15 
+// 16
+
+// a
+function getStringLists(arry) {
+  return arry.filter(element => typeof(element) == 'string');
+}
+console.log(getStringLists([1,2,'abc',true,'xyz']));
 
 
+// b
+
+function categorizeCountries (){
+  let regex1 = RegExp('[A].*');
+  return countries.filter(country => regex1.test(country));
+}
+
+console.log(categorizeCountries());
+
+// c
+
+let getCountries = function(elt, index){
+  return index < this;
+}
+
+function getFirstCountries(num){  
+  return countries.filter(getCountries,num)
+}
+
+console.log(getFirstCountries(10));
 
 
+// d
 
+let isLastCountry = function (elt, index){
+  return this > (countries.length-1) - index; 
+}
 
+function getLastCountries(num){
+  return countries.filter(isLastCountry,num);
+}
+
+console.log(getLastCountries(1));
